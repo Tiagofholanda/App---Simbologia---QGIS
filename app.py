@@ -1,9 +1,21 @@
+import subprocess
+import sys
 import streamlit as st
 import os
 import tempfile
 from PIL import Image
 import base64
 import svgwrite
+
+# Função para instalar pacotes
+def install_packages():
+    subprocess.check_call([sys.executable, '-m', 'pip', 'install', '-r', 'requirements.txt'])
+
+# Chame a função para instalar pacotes
+try:
+    install_packages()
+except Exception as e:
+    st.error(f"Erro ao instalar pacotes: {e}")
 
 def convert_png_to_svg(input_file, output_file):
     # Abre a imagem PNG e obtém suas dimensões
