@@ -1,16 +1,5 @@
-import os
-import subprocess
-import sys
-
-# Função para instalar pacotes a partir do requirements.txt
-def install_packages():
-    subprocess.check_call([sys.executable, '-m', 'pip', 'install', '-r', 'requirements.txt'])
-
-# Instalar pacotes se necessário
-if not all(package in sys.modules for package in ['Pillow', 'streamlit', 'svgwrite']):
-    install_packages()
-
 import streamlit as st
+import os
 import tempfile
 from PIL import Image
 import base64
